@@ -94,7 +94,7 @@ const filter_reducer = (state, action) => {
         });
       }
 
-      console.log("filtering");
+      // console.log("filtering");
       return { ...state, filteredProducts: tempProducts };
     case CLEAR_FILTERS:
       return {

@@ -49,7 +49,8 @@ const cart_reducer = (state, action) => {
   if (action.type === TOGGLE_CART_ITEM_AMOUNT) {
     const { id, value } = action.payload;
     let tempCart = [];
-    tempCart = state.cart.map((item) => {
+    let index = -1;
+    tempCart = state.cart.map((item, idx) => {
       if (item.id === id) {
         if (value === "inc") {
           let newAmount = item.amount + 1;
@@ -60,6 +61,8 @@ const cart_reducer = (state, action) => {
         }
         if (value === "dec") {
           if (item.amount === 1) {
+            index = idx; //save index
+            // console.log(index);
             return { ...item, amount: 1 };
           } else {
             let newAmount = item.amount - 1;
@@ -70,7 +73,9 @@ const cart_reducer = (state, action) => {
         return item;
       }
     });
-
+    if (!(index === -1)) {
+      tempCart.splice(index, 1); //splice index
+    }
     return { ...state, cart: tempCart };
   }
   if (action.type === COUNT_CART_TOTALS) {
