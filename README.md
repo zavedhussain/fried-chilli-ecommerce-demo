@@ -57,7 +57,8 @@ REACT_APP_AUTH_CLIENT_ID = your-key
 REACT_APP_STRIPE_PUBLIC_KEY = your-key
 
 REACT_APP_STRIPE_SECRET_KEY = your-key
-```
+````
+`npm install` to install packages
 
 Start server without netlify-cli with `npm start` or
 
